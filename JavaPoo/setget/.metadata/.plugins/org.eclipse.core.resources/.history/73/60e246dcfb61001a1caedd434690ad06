@@ -1,0 +1,11 @@
+package setget;
+import javax.swing.JOptionPane;
+public class Calculadora {
+	public static void main(String[]args) {
+		Operacoes imc = new Operacoes();
+		imc.setAltura(1.70);
+		imc.setPeso(60);
+		imc.setSexo("Masculino");
+		imc.Result();
+	}
+}

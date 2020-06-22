@@ -1,0 +1,13 @@
+public class UsaLampada {
+	public static void main(String[] args) {
+		Lampada lampadas[] = new Lampada[2];
+		lampadas[0] = new Lampada();
+		lampadas[1] = new Lampada();
+		
+		lampadas[0].ligarLampada();
+		lampadas[1].desligarLampada();
+		
+		lampadas[0].observar();
+		lampadas[1].observar();
+	}
+}

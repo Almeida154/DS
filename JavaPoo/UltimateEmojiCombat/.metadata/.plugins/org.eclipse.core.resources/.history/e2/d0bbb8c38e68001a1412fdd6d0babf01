@@ -1,0 +1,5 @@
+public class UltimateEmojiCombat {
+	public static void main(String[]args) {
+		Lutador l1 = new Lutador("PrettyBoy", "França", 31, 1.75, 68.9, 11, 2, 1);
+	}
+}

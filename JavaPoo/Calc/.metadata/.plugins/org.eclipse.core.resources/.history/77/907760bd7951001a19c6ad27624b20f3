@@ -1,0 +1,20 @@
+public class vars2 {
+	public static void main(String[] args) {
+		calc2 result = new calc2();
+		result.ler();
+		if(result.sinal == 1) {
+			result.soma();
+		}
+		if(result.sinal == 2) {
+			result.subtracao();
+		}
+		if(result.sinal == 3) {
+			result.div();
+		}
+		if(result.sinal == 4) {
+			result.mult();
+		}
+				
+	}
+
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Calculadora {
+	public static void main (String[]args) {
+		Scanner in = new Scanner (System.in);
+		Operacoes calc = new Operacoes();
+			while(true) {
+				if(calc.opc == 5) break;
+				switch(calc.opc){
+					case 1:
+						calc.Somar();
+						break;
+					case 2:
+						calc.Sub();
+						break;
+					case 3:
+						calc.Div();
+						break;
+					case 4:
+						calc.Mult();
+						break;
+			}
+		}
+	}
+}

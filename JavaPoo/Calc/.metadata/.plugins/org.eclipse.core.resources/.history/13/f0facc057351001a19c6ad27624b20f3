@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Calculadora {
+	public static void main (String[]args) {
+		Scanner in = new Scanner (System.in);
+		
+		Operacoes calc = new Operacoes();
+		
+		calc.Ler(); 
+//		Operacoes opcao = new Operacoes();
+//		Operacoes calc = new Operacoes();
+//		Operacoes leitura = new Operacoes();
+//		while(true) {
+//			System.out.println("------------------------------CALCULADORA-----------------------------");
+//			System.out.println("Operações: 1-Soma | 2-Subtração | 3-Divisão | 4-Multiplicação | 5-Exit");
+//			opcao.opc = in.nextInt();
+//			if(opcao.opc == 5) break;
+//			switch(opcao.opc){
+//				case 1:
+//					leitura.Ler();
+//					calc.Somar();
+//					break;
+//				case 2:
+//					calc.Sub();
+//					break;
+//				case 3:
+//					calc.Div();
+//					break;
+//				case 4:
+//					calc.Mult();
+//					break;
+//			}
+//		}
+	}
+}

@@ -1,0 +1,6 @@
+public class UsaTv {
+	public static void main(String[] args) {
+		Tv panasonic = new Tv();
+		System.out.println(panasonic.Status());
+	}
+}

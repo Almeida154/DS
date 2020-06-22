@@ -1,0 +1,33 @@
+import java.util.*;
+public class calc2 {
+	int n1;
+	int n2;
+	int r;
+	int sinal;
+	public void ler() {
+		Scanner scan = new Scanner (System.in);
+		System.out.println("Digite os números");
+		n1=scan.nextInt();
+		n2=scan.nextInt();
+		System.out.println("Escolha a operação: 1 Adiciona| 2 Subtrai | 3 Divide | 4 Multiplica");
+		sinal=scan.nextInt();
+	}
+	public void soma() {
+			r=n1+n2;
+			System.out.println("o resultado é "+r);
+	}	
+	public void subtracao()	{
+			r=n1-n2;
+			System.out.println("o resultado é "+r);
+	}	
+	public void div() {
+			r=n1/n2;
+			System.out.println("o resultado é "+r);
+	}	
+	public void mult() {	
+			r=n1*n2;
+			System.out.println("o resultado é "+r);
+	}
+
+}
+	

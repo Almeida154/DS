@@ -1,0 +1,8 @@
+import javax.swing.JOptionPane;
+public class Result {
+	public static void main(String[]args) {
+		PessoaFisica pf = new PessoaFisica();
+		PessoaJuridica pj = new PessoaJuridica();
+		pf.PessoaFisica();
+	}
+}

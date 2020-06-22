@@ -1,0 +1,6 @@
+
+public class PessoaJuridica {
+	public static void main(String[]args) {
+		
+	}
+}

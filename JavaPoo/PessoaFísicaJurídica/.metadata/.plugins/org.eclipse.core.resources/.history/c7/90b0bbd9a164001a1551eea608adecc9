@@ -1,0 +1,16 @@
+import javax.swing.JOptionPane;
+public class PessoaFisica{
+	private int cpf, rg;
+	
+	public void cpf(int _cpf) {
+		this.cpf = _cpf;
+	}
+	
+	public void rg(int _rg) {
+		this.rg = _rg;
+	}
+	
+	public void RPessoaFisica() {
+		JOptionPane.showMessageDialog(null, "CPF: "+cpf+"\nRG: "+rg);
+	}
+}

@@ -1,0 +1,7 @@
+import javax.swing.JOptionPane;
+public class PessoaJuridica extends Main{
+	private int cnpj;
+	public void PessoaJuridica() {
+		JOptionPane.showMessageDialog(null, "CPF: "+cnpj);
+	}
+}

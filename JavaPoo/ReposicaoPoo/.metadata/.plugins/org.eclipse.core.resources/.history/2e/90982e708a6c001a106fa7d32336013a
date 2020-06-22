@@ -1,0 +1,10 @@
+public class DirigiCaminhao {
+	public static void main(String[] args) {
+		Caminhao OptimusPrime = new Caminhao();
+		
+		OptimusPrime.ligarTruck();
+		OptimusPrime.trocarCombustivel("apple");
+		
+		System.out.println(OptimusPrime.status());
+	}
+}

@@ -1,0 +1,7 @@
+import javax.swing.JOptionPane;
+public class PessoaFisica extends Main{
+	private int cpf, rg;
+	public void PessoaFisica() {
+		JOptionPane.showMessageDialog(null, "CPF: "+cpf+"\nRG: "+rg);
+	}
+}

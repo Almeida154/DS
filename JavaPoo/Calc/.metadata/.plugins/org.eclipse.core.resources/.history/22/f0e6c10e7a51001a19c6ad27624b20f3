@@ -1,0 +1,10 @@
+public class Obj {
+	public static void main(String[] args) {
+		Calc result = new Calc();
+		result.ler();
+		result.op();
+		result.r();
+				
+	}
+
+}

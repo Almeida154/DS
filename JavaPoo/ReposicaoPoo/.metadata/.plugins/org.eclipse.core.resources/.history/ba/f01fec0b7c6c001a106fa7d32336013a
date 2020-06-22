@@ -1,0 +1,26 @@
+public class Lampada {
+	//Atributos
+	private boolean status;
+	
+	//Comportamentos
+	public boolean getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(boolean stts) {
+		this.status = stts;
+	}
+
+	public void ligarLampada() {
+		setStatus(true);
+	}
+	
+	public void desligarLampada() {
+		setStatus(false);
+	}
+	
+	public void observar() {
+		if(getStatus()) System.out.println("--ACESSA!--");
+		else System.out.println("--DESLIGADA!--");
+	}
+}

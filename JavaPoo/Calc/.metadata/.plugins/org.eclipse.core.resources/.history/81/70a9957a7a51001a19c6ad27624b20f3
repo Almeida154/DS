@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Calc {
+	int n1;
+	int n2;
+	int r;
+	int sinal;
+	public void ler() {
+		Scanner scan = new Scanner (System.in);
+		System.out.println("Digite os números");
+		n1=scan.nextInt();
+		n2=scan.nextInt();
+		System.out.println("escolha o sinal: 1=+, 2=-, 3=/,4=*. ");
+		sinal=scan.nextInt();
+	}	
+	public void op() {
+		if(sinal == 1) {
+			r=n1+n2;
+		}
+		if(sinal == 2) {
+			r=n1-n2;
+		}
+		if(sinal == 3) {
+			r=n1/n2;
+		}
+		if(sinal == 4) {
+			r=n1*n2;
+		}
+	}
+	public void r() {
+		System.out.println("o resultado é "+r);
+	}
+	
+}
+

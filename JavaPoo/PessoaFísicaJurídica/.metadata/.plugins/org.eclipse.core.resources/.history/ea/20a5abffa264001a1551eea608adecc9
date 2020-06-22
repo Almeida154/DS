@@ -1,0 +1,21 @@
+import javax.swing.JOptionPane;
+public class Result {
+	public static void main(String[]args) {
+		PessoaFisica pf = new PessoaFisica();
+		PessoaJuridica pj = new PessoaJuridica();
+		pf.cpf("535.091.238-08");
+		pf.rg("56.826.012-0");
+		pf.Nome("David Avenue");
+		pf.Rua("Rua Osório Franco Vilhena");
+		pf.Num("1305");
+		pf.Telefone("(55)1195764-8755");
+		pf.RPessoaFisica();
+		
+		pj.cnpj("236.665.652-35");
+		pj.Nome("Cit Industries");
+		pj.Rua("Rua das Violetas");
+		pj.Num("321");
+		pj.Telefone("(55)2619-6993");
+		pj.RPessoaJuridica();
+	}
+}

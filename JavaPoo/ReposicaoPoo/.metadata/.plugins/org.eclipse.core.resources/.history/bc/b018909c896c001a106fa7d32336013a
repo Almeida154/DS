@@ -1,0 +1,151 @@
+import java.util.Scanner;
+public class Caminhao {
+	//Atributos
+	private String combustivel = "gasolina";
+	private int velocidade;
+	private boolean ligado = false;
+	
+	//Comportamentos
+	public String Status() {
+		return "\n---Status do TRUCK---"
+				+ "\nMotor Ligado?: "+ getLigado()
+				+ "\nCombustível: "+ getCombustivel()
+				+ "\nVelocidade: "+ getVelocidade();
+	}
+	
+	public void ligarTruck() {
+		if(!getLigado()) {
+			setLigado(true);
+			System.out.println("Caminhão ligado! VRUM VRUM");
+		}
+		else System.out.println("Já ta ligado!");
+		System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+	}
+	
+	public void desligarTruck() {
+		if(getLigado()) {
+			setLigado(false);
+			setVelocidade(0);
+		}
+		else System.out.println("Já ta desligado!");
+	}
+	
+	public void aumentarVelocidade(){
+		if(getLigado()) {
+			Scanner in = new Scanner(System.in);
+			int opc;
+			boolean speed = true;
+			do {
+				System.out.println("1 - Pisar pouquíssimo | 2 - Pisar pouco | 3 - Pisar mais ou menos | 4 - ATIVAR BRAYA MODE | 5 - Tirar o pé da tábua");
+				opc = in.nextInt();
+				switch(opc) {
+					case 1:
+						if(getVelocidade()<=145) setVelocidade(getVelocidade() + 5);
+						else System.out.println("Mano, pise menos!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 2:
+						if(getVelocidade()<=135) setVelocidade(getVelocidade() + 15);
+						else System.out.println("Mano, pise menos!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 3:
+						if(getVelocidade()<=100) setVelocidade(getVelocidade() + 50);
+						else System.out.println("Mano, pise menos!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 4:
+						if(getVelocidade()<=50) setVelocidade(getVelocidade() + 100);
+						else System.out.println("Mano, pise menos!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 5:
+						System.out.println("Você tirou o pé da tábua");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						speed = false;
+						break;
+				}
+			}while(true);
+		}
+		else System.out.println("Você precisa ligar o caminhão primeiro!");
+	}
+	
+	public void diminuirVelocidade(){
+		if(getLigado()) {
+			int opc;
+			boolean speed = true;
+			Scanner in = new Scanner(System.in);
+			do {
+				System.out.println("1 - Tirar pouquíssimo | 2 - Tirar pouco | 3 - Tirar mais ou menos | 4 - FREIO DE MÃO | 5 - Cansei de freiar");
+				opc = in.nextInt();
+				switch(opc) {
+					case 1:
+						if(getVelocidade()>=5) setVelocidade(getVelocidade() - 5);
+						else System.out.println("Mano, se nem ta nessa velocidade!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 2:
+						if(getVelocidade()>=15) setVelocidade(getVelocidade() - 15);
+						else System.out.println("Mano, se nem ta nessa velocidade!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 3:
+						if(getVelocidade()>=50) setVelocidade(getVelocidade() - 50);
+						else System.out.println("Mano, se nem ta nessa velocidade!");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 4:
+						setVelocidade(0);
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						break;
+					case 5:
+						System.out.println("Você parou de freiar");
+						System.out.println("Velocímetro: "+getVelocidade()+"km/h");
+						speed = false;
+						break;
+				}
+			}while(true);
+		}
+		else System.out.println("Você precisa ligar o caminhão primeiro!");
+	}
+	
+	public void trocarCombustivel(String comb) {
+		if(getLigado()) {
+			System.out.println("Você precisa desligar o caminhão primeiro!");
+		}
+		else {
+			if(getCombustivel().equals(comb)) {
+				System.out.println("Você já usa esse combustível!");
+			}
+			else {
+				if(comb.equals("gasolina") || comb.equals("diesel") || comb.equals("gás")) setCombustivel(comb);
+				else System.out.println("Esse combustível não existe!");
+			}
+		}
+	}
+	
+	//Comportamentos Especiais
+	public boolean getLigado() {
+		return ligado;
+	}
+	
+	public void setLigado(boolean lig) {
+		this.ligado = lig;
+	}
+	
+	public String getCombustivel() {
+		return combustivel;
+	}
+	
+	public void setCombustivel(String combustivel) {
+		this.combustivel = combustivel;
+	}
+	
+	public int getVelocidade() {
+		return velocidade;
+	}
+	
+	public void setVelocidade(int velocidade) {
+		this.velocidade = velocidade;
+	}
+}

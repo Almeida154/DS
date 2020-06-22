@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Operacoes {
+	Scanner in = new Scanner (System.in);
+	int opc;
+	int a, b, r;
+	
+	public void Ler(){
+		double a, b;
+		System.out.println("Digite um valor:");
+		a = in.nextInt();
+		System.out.println("Digite outro valor:");
+		b = in.nextInt();
+	}
+	
+	public void SolicitarOp(){
+		System.out.println("------------------------------CALCULADORA-----------------------------");
+		System.out.println("Operações: 1-Soma | 2-Subtração | 3-Divisão | 4-Multiplicação | 5-Exit");
+		
+	}
+	
+	public void Somar() {
+		r = a + b;
+		System.out.println(a+" + "+b+" = "+r);
+	}
+	
+	public void Sub() {
+		r = a - b;
+		System.out.println(a+" - "+b+" = "+r);
+	}
+	
+	public void Div() {
+		r = a / b;
+		System.out.println(a+" / "+b+" = "+r);
+	}
+	
+	public void Mult() {
+		r = a * b;
+		System.out.println(a+" * "+b+" = "+r);
+	}
+}

@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\cliente\Desktop\ReposicaoPoo\.metadata\.plugins\org.eclipse.jdt.core
+2439081366.index
+1044808452.index

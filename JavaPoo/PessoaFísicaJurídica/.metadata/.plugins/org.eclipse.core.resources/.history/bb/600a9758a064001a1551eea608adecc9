@@ -1,0 +1,10 @@
+import javax.swing.JOptionPane;
+public class Main {
+	String nome, rua, tel, num;
+	int dataCriacao;
+	
+	public void Main(){
+		JOptionPane.showMessageDialog(null, "Nome: "+nome+"\nData Nascimento"
+				+ "ou criação: "+dataCriacao+"\nRua: "+rua+"\nNúmero: "+num+"\nTelefone: "+tel);
+	}
+}

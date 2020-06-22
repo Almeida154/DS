@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Operacoes {
+	Scanner in = new Scanner (System.in);
+	int opc;
+	public void Ler(){
+		System.out.println("Digite um valor:");
+		a = in.nextInt();
+		System.out.println("Digite outro valor:");
+		b = in.nextInt();
+	}
+	public void Somar() {
+		double a, b, soma;
+		soma = a + b;
+		System.out.println(a+" + "+b+" = "+soma);
+	}
+	public void Sub() {
+		double a, b, soma;
+		soma = a - b;
+		System.out.println(a+" - "+b+" = "+soma);
+	}
+	public void Div() {
+		double a, b, soma;
+		soma = a / b;
+		System.out.println(a+" / "+b+" = "+soma);
+	}
+	public void Mult() {
+		double a, b, soma;
+		soma = a * b;
+		System.out.println(a+" * "+b+" = "+soma);
+	}
+}

@@ -1,0 +1,70 @@
+import java.util.Scanner;
+public class UltimateEmojiCombat {
+	public static void main(String[]args) {
+		Scanner in = new Scanner(System.in);
+		Luta game = new Luta();
+		Lutador l[] = new Lutador[6];
+		Lutador player1 = null, player2 = null;
+		l[0] = new Lutador("PrettyBoy", "França", 31, 1.75, 68.9, 11, 2, 1);
+		l[1] = new Lutador("Putscript", "Brasil", 29, 1.68, 57.8, 14, 2, 3);
+		l[2] = new Lutador("Snapshadow", "Estados Unidos", 35, 1.65, 80.9, 12, 2, 1);
+		l[3] = new Lutador("Dead Code", "Austrália", 28, 1.93, 81.6, 13, 0, 2);
+		l[4] = new Lutador("UFOCObol", "Brasil", 37, 1.70, 119.3, 5, 4, 3);
+		l[5] = new Lutador("Nerdaart", "Estados Unidos", 30, 1.81, 105.7, 12, 2, 4);
+		
+		System.out.println("-----------LUTADORES---------------");
+		for(int i=0; i<l.length; i++) {
+			l[i].apresentar();
+		}
+		
+		System.out.println("Escolha um lutador: ");
+		String p1 = in.next();
+		switch(p1) {
+			case "PrettyBoy":
+				player1 = l[0];
+				break;
+			case "Putscript":
+				player1 = l[1];
+				break;
+			case "Snapshadow":
+				player1 = l[1];
+				break;
+			case "Dead Code":
+				player1 = l[1];
+				break;
+			case "UFOCObol":
+				player1 = l[1];
+				break;
+			case "Nerdaart":
+				player1 = l[1];
+				break;
+		}
+		
+		System.out.println("Escolha um adversário: ");
+		String p2 = in.next();
+		switch(p2) {
+			case "PrettyBoy":
+				player2 = l[0];
+				break;
+			case "Putscript":
+				player2 = l[1];
+				break;
+			case "Snapshadow":
+				player2 = l[1];
+				break;
+			case "Dead Code":
+				player2 = l[1];
+				break;
+			case "UFOCObol":
+				player2 = l[1];
+				break;
+			case "Nerdaart":
+				player2 = l[1];
+				break;
+		}
+		
+		game.marcarLuta(player1, player2);
+		game.lutar();
+
+	}
+}

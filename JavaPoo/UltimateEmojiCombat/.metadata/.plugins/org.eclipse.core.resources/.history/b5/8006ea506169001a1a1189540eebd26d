@@ -1,0 +1,86 @@
+import java.util.Random;
+public class Luta {
+	
+	//Atributos
+	
+	private Lutador desafiado, desafiante;
+	private int rounds;
+	private boolean aprovada;
+	
+	//Métodos
+	
+	public void marcarLuta(Lutador l1, Lutador l2) {
+		if(l1.getCategoria().equals(l2.getCategoria()) && l1 != l2) {
+			setAprovada(true);
+			setDesafiado(l1);
+			setDesafiante(l2);
+		}
+		else {
+			setAprovada(false);
+			setDesafiado(null);
+			setDesafiante(null);			
+		}
+	}
+	
+	public void lutar() {
+		if(getAprovada()) {
+			System.out.println("-------DESAFIADO-------");
+			getDesafiado().apresentar();
+			System.out.println("-------DESAFIANTE-------");
+			getDesafiante().apresentar();
+			Random rand = new Random();
+			int aleatoriedade = rand.nextInt(3);
+			switch(aleatoriedade) {
+				case 0:
+					System.out.println("---Empatou!---");
+					getDesafiante().empatarLuta();
+					getDesafiado().empatarLuta();
+					break;
+				case 1:
+					System.out.println("---O desafiado ganhou!---");
+					getDesafiante().perderLuta();
+					getDesafiado().ganharLuta();
+				case 2:
+					System.out.println("---O desafiante ganhou!---");
+					getDesafiante().ganharLuta();
+					getDesafiado().perderLuta();
+					break;
+			}
+		}
+		else{
+			System.out.println("A luta não pode acontecer.");
+		}
+	}
+	
+	public Lutador getDesafiado() {
+		return desafiado;
+	}
+
+	public void setDesafiado(Lutador desafiado) {
+		this.desafiado = desafiado;
+	}
+
+	public Lutador getDesafiante() {
+		return desafiante;
+	}
+
+	public void setDesafiante(Lutador desafiante) {
+		this.desafiante = desafiante;
+	}
+
+	public int getRounds() {
+		return rounds;
+	}
+
+	public void setRounds(int rounds) {
+		this.rounds = rounds;
+	}
+
+	public boolean getAprovada() {
+		return aprovada;
+	}
+
+	public void setAprovada(boolean aprovada) {
+		this.aprovada = aprovada;
+	}
+}
