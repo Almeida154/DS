@@ -1,0 +1,24 @@
+public abstract class Bomba {
+	//Atributos
+	private boolean status;
+	
+	//Comportamentos
+	private void on() {
+		if(!getStatus()) setStatus(true);
+		else System.out.println("A bomba já está ligada");
+	}
+	
+	private void off() {
+		if(getStatus()) setStatus(false);
+		else System.out.println("A bomba já está desligada");
+	}
+	
+	//Getters and Setters
+	public boolean getStatus() {
+		return this.status;
+	}
+	
+	public void setStatus(boolean n) {
+		this.status = n;
+	}
+}

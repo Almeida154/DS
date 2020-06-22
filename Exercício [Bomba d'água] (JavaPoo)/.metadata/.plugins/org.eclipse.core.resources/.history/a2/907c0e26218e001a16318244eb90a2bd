@@ -1,0 +1,12 @@
+public class UsaBomba {
+	public static void main(String[] args) {
+		Bomba bomba1 = new Bomba();
+		
+		/* A variável do parâmetro ON, é referente aos segundos 
+		em que a bomba ficará ligada antes de desligar, 
+		conforma o enunciado*/
+
+		bomba1.on(3); 
+		bomba1.off();
+	}
+}

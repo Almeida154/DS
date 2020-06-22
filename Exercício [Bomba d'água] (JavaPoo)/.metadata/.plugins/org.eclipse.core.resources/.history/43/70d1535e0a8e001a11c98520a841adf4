@@ -1,0 +1,24 @@
+public abstract class Bomba {
+	//Atributos
+	private boolean status;
+	
+	//Comportamentos
+	private void on() {
+		if(!getStatus()) {
+			status.
+		}
+	}
+	
+	private void off() {
+		
+	}
+	
+	//Getters and Setters
+	public boolean getStatus() {
+		return this.status;
+	}
+	
+	public void setStatus(boolean n) {
+		this.status = n;
+	}
+}

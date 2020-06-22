@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+E:\Etec\2°A\EaD\2° Bimestre\Base Técnica\(DS) Desenvolvimento de Sistemas\Exercício [Bomba d'água] (JavaPoo)\.metadata\.plugins\org.eclipse.jdt.core
+3327820698.index
+2439081366.index

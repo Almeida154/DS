@@ -1,0 +1,43 @@
+public class Bomba {
+	//Atributos
+	private boolean status;
+	
+	//Comportamentos
+	private void on(int n) {
+		if(!getStatus()) setStatus(true);
+		else System.out.println("A bomba já está ligada");
+		temporizador(n);
+		this.observar();
+	}
+	
+	private void off() {
+		if(getStatus()) setStatus(false);
+		else System.out.println("A bomba já está desligada");
+	}
+	
+	protected void temporizador(int segundos){
+		for(; segundos>=0; segundos--) {
+			System.out.println("Faltam "+segundos+"segundo(s)");
+			try{
+				Thread.sleep(1000);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		this.setStatus(false);
+	}
+	
+	protected void observar() {
+		if(getStatus()) System.out.println("<--- A bomba está ligada! --->");
+		else System.out.println("<--- A bomba está desligada! --->");
+	}
+	
+	//Getters and Setters
+	public boolean getStatus() {
+		return this.status;
+	}
+	
+	public void setStatus(boolean n) {
+		this.status = n;
+	}
+}

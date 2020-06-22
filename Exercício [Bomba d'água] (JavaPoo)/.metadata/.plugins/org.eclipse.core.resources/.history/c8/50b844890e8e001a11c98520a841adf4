@@ -1,0 +1,7 @@
+public class UsaBomba {
+	public static void main(String[] args) {
+		Bomba bomba1 = new Bomba();
+		bomba1.on(10);
+		bomba1.on(10);
+	}
+}

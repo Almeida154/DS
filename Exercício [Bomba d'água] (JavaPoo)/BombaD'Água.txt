@@ -1,0 +1,79 @@
+ATIVIDADE: DESENVOLVIMENTO DE SISTEMAS - BOMBA D'ÁGUA
+
+Nome: David Almeida Santos - nº04
+Nome: Matheus Borges de Oliveira - nº29
+Turma: 2º Mtec A - DS
+Professor: André
+Data: 04/05/2020
+
+<------------------------------------------- UsaBomba.java ------------------------------------------->
+
+public class UsaBomba {
+	public static void main(String[] args) {
+		Bomba bomba1 = new Bomba();
+		
+		/* A variável do parâmetro ON, é referente aos segundos 
+		em que a bomba ficará ligada antes de desligar, 
+		conforma o enunciado*/
+		
+		/* Obs.: O programa nunca entrará na condição 
+		 * de "ERRO: A bomba já está ligada", pois ela sempre 
+		 * termina desligada, ou seja, impossível. */
+
+		bomba1.on(3); 
+		bomba1.off();
+	}
+}
+
+
+
+
+
+<---------------------------------------------- Bomba.java ---------------------------------------------->
+
+public class Bomba {
+	//Atributos
+	private boolean status;
+	
+	//Comportamentos
+	public void on(int n) {
+		if(!getStatus()) {
+			setStatus(true);
+			System.out.println("\n<--- A bomba foi ligada! --->\n");
+			temporizador(n);
+			this.observar();
+		}
+		else System.out.println("ERRO: A bomba já está ligada");
+	}
+	
+	public void off() {
+		if(getStatus()) setStatus(false);
+		else System.out.println("ERRO: A bomba já está desligada");
+	}
+	
+	private void temporizador(int segundos){
+		for(; segundos>=0; segundos--) {
+			System.out.println("Faltam "+segundos+" segundo(s)");
+			try{
+				Thread.sleep(1000);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		this.setStatus(false);
+	}
+	
+	private void observar() {
+		if(getStatus()) System.out.println("\n<--- A bomba está ligada! --->\n");
+		else System.out.println("\n<--- A bomba está desligada! --->\n");
+	}
+	
+	//Getters and Setters
+	private boolean getStatus() {
+		return this.status;
+	}
+	
+	private void setStatus(boolean n) {
+		this.status = n;
+	}
+}
