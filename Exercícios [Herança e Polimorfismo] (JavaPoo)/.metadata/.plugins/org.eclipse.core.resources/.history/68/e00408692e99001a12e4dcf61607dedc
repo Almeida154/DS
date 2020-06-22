@@ -1,0 +1,12 @@
+public class Gato extends Animal implements AnimalAdestrado{
+	
+	//Classe responsável pelo Gato, sendo uma especialização da progenitora "Animal"
+
+	public Gato(int idade, String cor, String raca, String classe) {
+		super(idade, cor, raca, classe);
+		this.dorminhoco = true;
+	}
+
+	
+	
+}

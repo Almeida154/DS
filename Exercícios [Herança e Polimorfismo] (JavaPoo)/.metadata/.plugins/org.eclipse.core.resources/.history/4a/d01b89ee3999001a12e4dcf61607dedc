@@ -1,0 +1,11 @@
+public class MeuAnimal {
+	public static void main(String[] args) {
+		
+		//Classe responsável por instanciar os objetos.
+	
+		
+		Gato mingau = new Gato();
+		mingau.DefinirGato();
+		
+	}
+}

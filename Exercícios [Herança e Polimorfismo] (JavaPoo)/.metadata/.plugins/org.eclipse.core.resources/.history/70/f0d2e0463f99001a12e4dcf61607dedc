@@ -1,0 +1,6 @@
+import java.util.Scanner;
+public class Passaro {
+
+	//Classe responsável pelo Pássaro, sendo uma especialização da progenitora "Animal"
+	
+}

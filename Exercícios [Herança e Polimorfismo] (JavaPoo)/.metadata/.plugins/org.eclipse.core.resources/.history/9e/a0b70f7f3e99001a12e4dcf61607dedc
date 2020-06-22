@@ -1,0 +1,6 @@
+import java.util.Scanner;
+public class Baleia {
+
+	//Classe responsável pelo Baleia, sendo uma especialização da progenitora "Animal"
+	
+}

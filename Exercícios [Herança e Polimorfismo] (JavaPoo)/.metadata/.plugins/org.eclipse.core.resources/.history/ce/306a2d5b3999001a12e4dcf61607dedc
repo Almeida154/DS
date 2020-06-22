@@ -1,0 +1,110 @@
+public abstract class Animal {
+
+	//Classe progenitora, ou classe mãe.
+	
+
+	//Características que todo animal tem -> Cor, Raça, Idade, Classe (mamíferos, aves, etc...)
+	
+	int idade, condicao;
+	String cor, raca, classe, nome;
+	boolean dorminhoco;
+	
+	
+	//Construtor
+
+	public Animal() {
+		super();
+		this.idade = 0;
+		this.cor = "Indefinido";
+		this.raca = "Indefinido";
+		this.dorminhoco = false;
+		this.classe = "Indefinido";
+		this.nome = "Indefinido";
+	}
+	
+	
+	//Métodos
+	
+	public void statusAnimal() {
+		System.out.println("----------------------STATUS----------------------");
+		System.out.println("Nome: " + this.getNome());
+		System.out.println("Idade: " + this.getIdade());
+		System.out.println("Classe: " + this.getClasse());
+		System.out.println("Cor: " + this.getCor());
+		System.out.println("Raça: " + this.getRaca());
+		System.out.println("Dorminhoco: "+this.getCondicao());
+		System.out.println("\n");
+	}
+	
+	
+	//Getters and Setters
+	
+	private int getIdade() {
+		return idade;
+	}
+
+
+	private void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+
+	private String getCor() {
+		return cor;
+	}
+
+
+	private void setCor(String cor) {
+		this.cor = cor;
+	}
+
+
+	private String getRaca() {
+		return raca;
+	}
+
+
+	private void setRaca(String raca) {
+		this.raca = raca;
+	}
+
+
+	private String getClasse() {
+		return classe;
+	}
+
+
+	private void setClasse(String classe) {
+		this.classe = classe;
+	}
+
+
+	private boolean getDorminhoco() {
+		return dorminhoco;
+	}
+
+
+	private void setDorminhoco(boolean dorminhoco) {
+		this.dorminhoco = dorminhoco;
+	}
+
+
+	private int getCondicao() {
+		return condicao;
+	}
+
+
+	private void setCondicao(int condicao) {
+		this.condicao = condicao;
+	}
+
+
+	private String getNome() {
+		return nome;
+	}
+
+
+	private void setNome(String nome) {
+		this.nome = nome;
+	}
+}

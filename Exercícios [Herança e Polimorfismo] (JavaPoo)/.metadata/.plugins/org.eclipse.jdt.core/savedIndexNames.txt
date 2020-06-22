@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+E:\Etec\2°A\2° Bimestre (EaD)\Base Técnica\(DS) Desenvolvimento de Sistemas\Exercícios [Herança e Polimorfismo] (JavaPoo)\.metadata\.plugins\org.eclipse.jdt.core
+2439081366.index
+3057299393.index

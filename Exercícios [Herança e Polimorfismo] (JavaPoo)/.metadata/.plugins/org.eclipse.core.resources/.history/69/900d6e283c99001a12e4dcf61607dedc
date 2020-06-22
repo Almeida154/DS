@@ -1,0 +1,6 @@
+import java.util.Scanner;
+public class Cachorro {
+
+	//Classe responsável pelo Cachorro, sendo uma especialização da progenitora "Animal"
+	
+}

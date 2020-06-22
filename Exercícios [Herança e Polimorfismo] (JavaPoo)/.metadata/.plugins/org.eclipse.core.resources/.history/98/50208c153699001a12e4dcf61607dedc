@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class Gato extends Animal implements AnimalAdestrado, AnimalDomesticado, AnimalSelvagem{
+	
+	//Classe responsável pelo Gato, sendo uma especialização da progenitora "Animal"
+
+	public Gato(int idade, String cor, String raca, String classe) {
+		super(idade, cor, raca, classe);
+		this.dorminhoco = true;
+	}
+	
+	public void DefinirGato() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("---------GATO---------");
+		System.out.println("Insira a idade:");
+		System.out.println("Insira a idade:");
+		System.out.println("Insira a idade:");
+		System.out.println("Insira a idade:");
+		System.out.println("----------------------");
+	}
+	
+
+	//Sobreposições
+
+	@Override
+	public void BarulhoAdestrado() {
+		System.out.println("O animal diz: MIAU!");
+	}	
+
+
+	@Override
+	public void BarulhoSelvagem() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void BarulhoDomesticado() {
+		// TODO Auto-generated method stub
+		
+	}
+}

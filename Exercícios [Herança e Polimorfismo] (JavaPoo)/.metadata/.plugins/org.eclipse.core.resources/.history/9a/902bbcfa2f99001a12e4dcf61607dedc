@@ -1,0 +1,20 @@
+public abstract class Animal {
+
+	//Classe progenitora, ou classe mãe.
+	
+
+	//Características que todo animal tem -> Cor, Raça, Idade, Classe (mamíferos, aves, etc...)
+	int idade;
+	String cor, raca, classe;
+	boolean dorminhoco;
+	
+	//Construtor
+	public Animal(int idade, String cor, String raca, String classe) {
+		super();
+		this.idade = idade;
+		this.cor = cor;
+		this.raca = raca;
+		this.classe = classe;
+		this.dorminhoco = false;
+	}
+}

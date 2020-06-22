@@ -1,0 +1,82 @@
+import java.util.Scanner;
+public class Gato extends Animal implements AnimalAdestrado, AnimalDomesticado, AnimalSelvagem{
+	
+	//Classe responsável pelo Gato, sendo uma especialização da progenitora "Animal"
+
+	public Gato() {
+		super();
+		this.dorminhoco = true;
+		this.classe = "Mamífero";
+	}
+	
+	public void DefinirGato() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("---------GATO---------");
+		System.out.println(" ");
+		System.out.println("Insira a idade:");
+		int id = in.nextInt();
+		this.setIdade(id);
+		System.out.println("Insira o nome:");
+		String no = in.nextLine();
+		this.setNome(no);
+		System.out.println("Insira a cor:");
+		String cor = in.nextLine();
+		this.setCor(cor);
+		System.out.println("Insira a raça:");
+		String raca = in.nextLine();
+		this.setRaca(raca);
+		this.Barulho();
+		System.out.println(" ");
+		System.out.println("----------------------");
+		System.out.println(" ");
+	}
+	
+	//Métodos
+	
+	private void Barulho() {
+		Scanner in = new Scanner(System.in);
+		boolean aux = true;
+		do {
+			System.out.println("Ele é: 1 - Adestrado | 2 - Domesticado | 3 - Selvagem");
+			int opc = in.nextInt();
+			switch(opc) {
+				case 1:
+					this.BarulhoAdestrado();
+					aux = false;
+					break;
+				case 2:
+					this.BarulhoDomesticado();
+					aux = false;
+					break;
+				case 3:
+					this.BarulhoSelvagem();
+					aux = false;
+					break;
+				default:
+					System.out.println("- Tente novamente! -");
+					aux = true;
+			}
+		}while(aux);
+	}
+	
+
+	//Sobreposições
+
+	@Override
+	public void BarulhoAdestrado() {
+		System.out.println("O animal diz: MIAU! [Tradução: Oi, sou adestrado!]");
+	}	
+
+
+	@Override
+	public void BarulhoSelvagem() {
+		System.out.println("O animal diz: MIAAAAAAAAU! [Tradução: Saia! Sou selvagem.]");
+		
+	}
+
+	@Override
+	public void BarulhoDomesticado() {
+		System.out.println("O animal diz: MIAU! [Tradução: Oi, dono!]");
+		
+	}
+}

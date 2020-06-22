@@ -1,0 +1,5 @@
+public class Gato extends Animal{
+
+	//Classe responsável pelo Gato, sendo uma especialização da progenitora "Animal"
+	
+}
