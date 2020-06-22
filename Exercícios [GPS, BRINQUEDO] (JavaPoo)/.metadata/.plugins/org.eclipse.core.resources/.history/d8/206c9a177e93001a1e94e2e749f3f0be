@@ -1,0 +1,6 @@
+import java.util.Scanner;
+public class UsaGps {
+	public static void main(String[]agrs) {
+		Gps samsumg = new Gps("Rua Ribeirado Thurus Bengos", "Português");
+	}
+}

@@ -1,0 +1,33 @@
+public class Gps {
+	private String rota, idioma;
+
+	//CONSTRUTORES
+	public Gps(String rota, String idioma) {
+		this.rota = "Rua Ribeirado Thurus Bengos";
+		this.idioma = "Português";
+	}
+
+	//SETTERS AND GETTERS
+	public String getRota() {
+		return rota;
+	}
+
+	public void setRota(String rota) {
+		this.rota = rota;
+	}
+
+	public String getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+	
+	public void mostrar() {
+		System.out.println("-------------------------------");
+		System.out.println("Rota atual: "+getRota());
+		System.out.println("Idioma: "+getIdioma());
+	}
+	
+}

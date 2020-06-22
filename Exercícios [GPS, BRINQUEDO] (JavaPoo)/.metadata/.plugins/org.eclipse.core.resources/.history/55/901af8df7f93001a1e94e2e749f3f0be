@@ -1,0 +1,28 @@
+public class Brinquedo {
+	//ATRIBUTOS
+	private String nome, faixaEtaria;
+	private double preco;
+	
+	//CONSTRUCT
+	
+	//GETTERS AND SETTERS
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getFaixaEtaria() {
+		return faixaEtaria;
+	}
+	public void setFaixaEtaria(String faixaEtaria) {
+		this.faixaEtaria = faixaEtaria;
+	}
+	public double getPreco() {
+		return preco;
+	}
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+	
+}
