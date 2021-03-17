@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+E:\Etec\2°A\3° Bimestre (EaD)\Base Técnica\(DS) Desenvolvimento de Sistemas\ToDoList\.metadata\.plugins\org.eclipse.jdt.core
+1937566151.index
+2439081366.index
+2498250528.index

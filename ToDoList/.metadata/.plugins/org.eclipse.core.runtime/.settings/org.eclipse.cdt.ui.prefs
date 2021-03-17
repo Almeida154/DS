@@ -1,0 +1,15 @@
+content_assist_parameters_background=64,64,64
+content_assist_parameters_foreground=246,243,232
+content_assist_proposals_background=64,64,64
+content_assist_proposals_foreground=246,243,232
+eclipse.preferences.version=1
+inactiveCodeColor=97,97,97
+semanticHighlighting.enumerator.bold=false
+semanticHighlighting.field.bold=false
+semanticHighlighting.localVariableDeclaration.bold=false
+semanticHighlighting.staticField.bold=false
+sourceHoverBackgroundColor=161,152,121
+sourceHoverBackgroundColor.SystemDefault=false
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

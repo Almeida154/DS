@@ -1,0 +1,105 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+public class ToDoList extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField tfNewTask;
+	private JLabel lblSelectTheCategory;
+	private JLabel lblNewLabel_1;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ToDoList frame = new ToDoList();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public ToDoList() {
+		
+		// Background
+		
+		setTitle("ToDo");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 490, 530);
+		contentPane = new JPanel();
+		contentPane.setForeground(Color.DARK_GRAY);
+		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		// Components
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setBorder(new TitledBorder(new LineBorder(new Color(51, 51, 51), 2, true), "   New task   ", TitledBorder.RIGHT, TitledBorder.TOP, null, new Color(128, 128, 128)));
+		panel.setBounds(10, 11, 454, 165);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Type the task:");
+		lblNewLabel.setForeground(Color.LIGHT_GRAY);
+		lblNewLabel.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 15));
+		lblNewLabel.setBounds(23, 23, 86, 20);
+		panel.add(lblNewLabel);
+		
+		tfNewTask = new JTextField();
+		tfNewTask.setForeground(Color.LIGHT_GRAY);
+		tfNewTask.setBackground(new Color(51, 51, 51));
+		tfNewTask.setBounds(23, 53, 206, 20);
+		tfNewTask.setBorder(null);
+		panel.add(tfNewTask);
+		
+		lblSelectTheCategory = new JLabel("Select a category:");
+		lblSelectTheCategory.setForeground(Color.LIGHT_GRAY);
+		lblSelectTheCategory.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 15));
+		lblSelectTheCategory.setBounds(23, 84, 109, 20);
+		panel.add(lblSelectTheCategory);
+		
+		JComboBox cbxCategory = new JComboBox();
+		cbxCategory.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 15));
+		cbxCategory.setForeground(Color.LIGHT_GRAY);
+		cbxCategory.setBackground(new Color(51, 51, 51));
+		cbxCategory.setBounds(23, 115, 206, 22);
+		cbxCategory.setBorder(null);
+		cbxCategory.addItem(" Choose");
+		cbxCategory.addItem(" School");
+		cbxCategory.addItem(" Work");
+		cbxCategory.addItem(" Other");
+		panel.add(cbxCategory);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(309, 41, 109, 84);
+		panel.add(lblNewLabel_1);
+		setLocationRelativeTo(null);
+		
+		
+		
+		
+		
+	}
+}
