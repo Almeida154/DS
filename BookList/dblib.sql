@@ -1,0 +1,11 @@
+CREATE DATABASE `dblib`;
+USE `dblib`;
+
+CREATE TABLE `tbBook`(
+	`idBook` INT(11) NOT NULL AUTO_INCREMENT,
+	`titleBook` VARCHAR(200) NOT NULL,
+	`authorBook` VARCHAR(200) NOT NULL,
+	`yearBook` INT(11) NOT NULL DEFAULT 0,
+	`pagesBook` INT(11) NOT NULL DEFAULT 0,
+	PRIMARY KEY (`idBook`)
+);

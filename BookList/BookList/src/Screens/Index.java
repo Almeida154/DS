@@ -1,34 +1,31 @@
 package Screens;
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
 import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-
 import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 
+import App.Book;
+import App.BookDAO;
+import App.Connect;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -36,9 +33,11 @@ import javax.swing.JTable;
 
 public class Index extends JFrame {
 	
-	JTextField tfTitle, tfAuthor, tfYear, tfPages;
+	// Attributes
 	
-	DefaultTableModel tableModel = new DefaultTableModel();
+	private JTextField tfTitle, tfAuthor, tfYear, tfPages;
+	private DefaultTableModel tableModel = new DefaultTableModel();
+	private BookDAO bookDAO = new BookDAO();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -53,12 +52,12 @@ public class Index extends JFrame {
 		});
 	}
 
-	public Index() {
+	public Index() throws SQLException {
 		setTitle("BookList");
 		setResizable(false);
 		setBackground(new Color(240, 240, 240));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 370);
+		setBounds(100, 100, 815, 370);
 		JPanel contentPane = new JPanel();
 		contentPane.setBackground(new Color(105, 105, 105));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -157,14 +156,17 @@ public class Index extends JFrame {
 		lblError.setVisible(false);
 		contentPane.add(lblError);
 		
+		tableModel.addColumn("Id");
 		tableModel.addColumn("Title");
 		tableModel.addColumn("Author");
 		tableModel.addColumn("Year");
 		tableModel.addColumn("Pages");
 		
+		loadBooks();
+		
 		JScrollPane scrollPane = new JScrollPane();
 		LineBorder lb = new LineBorder(new Color(0,0,0,0));
-		scrollPane.setBounds(329, 32, 369, 264);
+		scrollPane.setBounds(329, 32, 424, 264);
 		scrollPane.setViewportBorder(null);
 		scrollPane.setBorder(lb);
 		scrollPane.setBackground(Color.darkGray);
@@ -177,10 +179,10 @@ public class Index extends JFrame {
 				lblError.setVisible(false);
 				int index = table.getSelectedRow();
 				if(index > -1) {
-					tfTitle.setText(tableModel.getValueAt(index, 0).toString().substring(1));
-					tfAuthor.setText(tableModel.getValueAt(index, 1).toString().substring(1));
-					tfYear.setText(tableModel.getValueAt(index, 2).toString().substring(1));
-					tfPages.setText(tableModel.getValueAt(index, 3).toString().substring(1));
+					tfTitle.setText(tableModel.getValueAt(index, 1).toString());
+					tfAuthor.setText(tableModel.getValueAt(index, 2).toString());
+					tfYear.setText(tableModel.getValueAt(index, 3).toString());
+					tfPages.setText(tableModel.getValueAt(index, 4).toString());
 				}else{
 					lblError.setVisible(true);
 					lblError.setText("There is nothing here!");
@@ -188,13 +190,24 @@ public class Index extends JFrame {
 			}
 		});
 		UIManager.getDefaults().put("TableHeader.cellBorder", BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
 		table.setFillsViewportHeight(true);
 		table.setGridColor(new Color(51, 51, 51));
 		table.setBackground(Color.darkGray);
 		table.setForeground(Color.LIGHT_GRAY);
+		
 		table.getTableHeader().setBackground(new Color(51, 51, 51));
 		table.getTableHeader().setForeground(Color.gray);
 		table.getTableHeader().setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 14));
+		
+		int sizes[] = new int[] {5, 100, 20, 5, 5};
+		
+		for(int i = 0; i < 5; i++) {
+			table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+			table.getColumnModel().getColumn(i).setPreferredWidth(sizes[i]);
+		}
+		
 		JTableHeader header = table.getTableHeader();
 		header.setPreferredSize(new Dimension(0, 40));
 		scrollPane.setViewportView(table);
@@ -203,15 +216,17 @@ public class Index extends JFrame {
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				lblError.setVisible(false);
 				if(!tfTitle.getText().isEmpty() && !tfAuthor.getText().isEmpty() && !tfYear.getText().isEmpty() 
 						&& !tfPages.getText().isEmpty()) {
-					tableModel.addRow(new Object[] {
-							" " + tfTitle.getText(),
-							" " + tfAuthor.getText(),
-							" " + tfYear.getText(),
-							" " + tfPages.getText()
-					});
+					Book book = new Book(
+							Integer.parseInt(tfYear.getText()), 
+							Integer.parseInt(tfPages.getText()), 
+							tfTitle.getText(), 
+							tfAuthor.getText());
+					bookDAO.insertDB(book);
+					try { loadBooks(); } catch (SQLException e) { e.printStackTrace(); }
 					clean();
 				}else{
 					lblError.setVisible(true);
@@ -230,15 +245,28 @@ public class Index extends JFrame {
 				lblError.setVisible(false);
 				int index = table.getSelectedRow();
 				if(index > -1) {
-					tableModel.setValueAt(" " + tfTitle.getText(), index, 0);
-					tableModel.setValueAt(" " + tfAuthor.getText(), index, 1);
-					tableModel.setValueAt(" " + tfYear.getText(), index, 2);
-					tableModel.setValueAt(" " + tfPages.getText(), index, 3);
-					clean();
+					int i = JOptionPane.showConfirmDialog(
+					        null, 
+					        "Are you sure? It'll alter " + tableModel.getValueAt(table.getSelectedRow(), 1),
+					        "Alter?",
+					        JOptionPane.OK_CANCEL_OPTION
+				        );
+					
+					if(i == JOptionPane.YES_OPTION) {
+						int id = (int) tableModel.getValueAt(table.getSelectedRow(), 0);
+						Book book = new Book(
+								id, Integer.parseInt(tfYear.getText()), 
+								Integer.parseInt(tfPages.getText()), 
+								tfTitle.getText(), tfAuthor.getText());
+						bookDAO.updateDB(book);
+						try { loadBooks(); } catch (SQLException e) { e.printStackTrace(); }
+					}
+					
 				}else{
 					lblError.setVisible(true);
 					lblError.setText("Nothing selected!");
 				}
+				clean();
 			}
 		});
 		btnAlter.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 12));
@@ -250,8 +278,22 @@ public class Index extends JFrame {
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lblError.setVisible(false);
-				if(table.getSelectedRow() > -1) tableModel.removeRow(table.getSelectedRow());
-				else{
+				if(table.getSelectedRow() > -1) {
+					
+					int i = JOptionPane.showConfirmDialog(
+						        null, 
+						        "Are you sure? It'll delete " + tableModel.getValueAt(table.getSelectedRow(), 1),
+						        "Delete?",
+						        JOptionPane.OK_CANCEL_OPTION
+					        );
+					
+					if(i == JOptionPane.YES_OPTION) {
+						int id = (int) tableModel.getValueAt(table.getSelectedRow(), 0);
+						bookDAO.deleteDB(id);
+						try { loadBooks(); } catch (SQLException e) { e.printStackTrace(); }
+					}
+					
+				}else{
 					lblError.setVisible(true);
 					lblError.setText("Nothing selected!");
 				}
@@ -261,8 +303,25 @@ public class Index extends JFrame {
 		btnDelete.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 12));
 		btnDelete.setBounds(178, 282, 68, 23);
 		onButtons(btnDelete);
-		panelData.add(btnDelete);		
+		panelData.add(btnDelete);
 		
+		
+	}
+	
+	// Methods
+	
+	private void loadBooks() throws SQLException {
+		tableModel.setRowCount(0);
+		
+		for(Book book : bookDAO.selectDB()) {
+			tableModel.addRow(new Object[] {
+					book.getId(), 
+					book.getTitle(), 
+					book.getAuthor(), 
+					book.getYear(), 
+					book.getPages()
+			});
+		}
 	}
 	
 	private void clean() {
