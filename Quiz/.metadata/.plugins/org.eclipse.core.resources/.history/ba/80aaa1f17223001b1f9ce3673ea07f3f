@@ -1,0 +1,25 @@
+package screens;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Result extends JFrame {
+
+	private JPanel contentPane;
+
+	public Result() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 310, 368);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+	}
+
+}

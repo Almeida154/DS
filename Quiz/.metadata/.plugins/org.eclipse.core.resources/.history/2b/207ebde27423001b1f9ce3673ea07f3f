@@ -1,0 +1,34 @@
+package screens;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Result extends JFrame {
+
+	private JPanel contentPane;
+
+	public Result() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 310, 368);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+		
+		// Components
+		
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon(About.class.getResource("/imgs/deandemon.jpg")));
+		background.setBounds(0, 0, 304, 339);
+		contentPane.add(background);
+		
+	}
+
+}

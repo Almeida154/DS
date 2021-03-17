@@ -1,0 +1,69 @@
+package Screens;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class Index extends JFrame {
+
+	private JPanel contentPane;
+
+	public Index() {
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 400, 394);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		// Components
+		
+		JLabel lblQuiz = new JLabel("QUIZ");
+		lblQuiz.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuiz.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 40));
+		lblQuiz.setForeground(Color.WHITE);
+		lblQuiz.setBounds(0, 11, 394, 66);
+		contentPane.add(lblQuiz);
+		setLocationRelativeTo(null);
+		
+		JLabel lblSeries = new JLabel("Series");
+		lblSeries.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSeries.setForeground(new Color(255, 204, 0));
+		lblSeries.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 16));
+		lblSeries.setBounds(0, 43, 394, 66);
+		contentPane.add(lblSeries);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(0, 0, 444, 482);
+		lblNewLabel.setIcon(new ImageIcon(Index.class.getResource("/imgs/os-melhores-wallpaper-de-heisenbrg-e-pink-7.jpg")));
+		contentPane.add(lblNewLabel);
+		
+
+	}
+	
+	private void onButtons(JButton btn) {
+		btn.setBackground(Color.gray);
+		btn.setForeground(Color.white);
+		btn.setFocusPainted(false);
+		btn.setBorderPainted(false);
+		btn.addMouseListener(new MouseAdapter() {
+	        public void mouseEntered(MouseEvent e) {
+	        	btn.setBackground(new Color(44, 44, 44));
+	        }
+	        public void mouseExited(MouseEvent e) {
+	    		btn.setBackground(Color.gray);
+	        }
+		});
+	}
+}

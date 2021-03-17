@@ -1,0 +1,95 @@
+package Screens;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class Index extends JFrame {
+
+	private JPanel contentPane;
+
+	public Index() {
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 310, 368);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+
+		
+		// Components
+		
+		JLabel lblQuiz = new JLabel("QUIZ");
+		lblQuiz.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuiz.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 40));
+		lblQuiz.setForeground(Color.WHITE);
+		lblQuiz.setBounds(0, 11, 304, 66);
+		contentPane.add(lblQuiz);
+
+		
+		JLabel lblSeries = new JLabel("Series");
+		lblSeries.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSeries.setForeground(new Color(255, 204, 0));
+		lblSeries.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 16));
+		lblSeries.setBounds(0, 43, 304, 66);
+		contentPane.add(lblSeries);
+		
+		JLabel lblByEtecDe = new JLabel("By Etec de Guaiacity");
+		lblByEtecDe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblByEtecDe.setForeground(new Color(255, 204, 0));
+		lblByEtecDe.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 10));
+		lblByEtecDe.setBounds(0, 266, 304, 44);
+		contentPane.add(lblByEtecDe);
+		
+		JButton btnStart = new JButton("START");
+		btnStart.setBounds(90, 120, 124, 33);
+		onButtons(btnStart);
+		contentPane.add(btnStart);
+		
+		JButton btnInstructions = new JButton("INSTRUCTIONS");
+		btnInstructions.setBounds(90, 164, 124, 33);
+		onButtons(btnInstructions);
+		contentPane.add(btnInstructions);
+		
+		JButton btnAbout = new JButton("ABOUT");
+		btnAbout.setBounds(90, 208, 124, 33);
+		onButtons(btnAbout);
+		contentPane.add(btnAbout);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(-23, 0, 375, 482);
+		lblNewLabel.setIcon(new ImageIcon(Index.class.getResource("/imgs/os-melhores-wallpaper-de-heisenbrg-e-pink-7.jpg")));
+		contentPane.add(lblNewLabel);
+		
+
+	}
+	
+	private void onButtons(JButton btn) {
+		btn.setBackground(new Color(44, 44, 44));
+		btn.setForeground(Color.white);
+		btn.setFocusPainted(false);
+		btn.setBorderPainted(false);
+		btn.addMouseListener(new MouseAdapter() {
+	        public void mouseEntered(MouseEvent e) {
+	        	btn.setBackground(new Color(184, 147, 0));
+	    		btn.setForeground(Color.black);
+	        }
+	        public void mouseExited(MouseEvent e) {
+	    		btn.setBackground(new Color(44, 44, 44));
+	    		btn.setForeground(Color.white);
+	        }
+		});
+	}
+}
